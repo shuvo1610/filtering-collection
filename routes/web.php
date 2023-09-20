@@ -14,4 +14,4 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get("filtered-Collection",[Controller::class, 'index'])->name('filtered.Collection');
+Route::get("laravel-Collection",[Controller::class, 'index'])->name('laravel.Collection');

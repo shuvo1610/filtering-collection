@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Collection;
 
 class Controller extends BaseController
 {
@@ -12,40 +13,13 @@ class Controller extends BaseController
 
 
     public function index(){
-        $collection = collect([
-            [
-                'name'      =>  'Luke Thomas',
-                'job'       =>  'Marketing Manager',
-                'salary'    =>  8000
-            ],
-            [
-                'name'      =>  'Liam Coleman',
-                'job'       =>  'Web Manager',
-                'salary'    =>  7500
-            ],
-            [
-                'name'      =>  'Jacob Hill',
-                'job'       =>  'Web Developer',
-                'salary'    =>  6500
-            ],
-            [
-                'name'      =>  'Charles Brown',
-                'job'       =>  'Web Developer',
-                'salary'    =>  5000
-            ],
-            [
-                'name'      =>  'Richard Wilson',
-                'job'       =>  'Web Developer',
-                'salary'    =>  5400
-            ],
-            [
-                'name'      =>  'Isaac Kelly',
-                'job'       =>  'Graphics Designer',
-                'salary'    =>  6000
-            ]
+        $collection = new Collection([
+            'London', 'Paris', 'Dublin', 'Berlin'
         ]);
 
-        $filteredCollection = $collection->where('job', 'Web Developer');
-        dd($filteredCollection);
+        $spliced = $collection->splice(1, 3, [
+            'New York', 'Tokyo', 'Sydney'
+        ]);
+        dd($collection);
     }
 }
